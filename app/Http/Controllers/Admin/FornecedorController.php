@@ -5,24 +5,30 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateFornecedor;
 use App\Models\Fornecedor;
+use App\Services\FornecedorService;
 use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
 {
-    public function index(Fornecedor $fornecedor)//injeção de dependencias do laravel
+
+    public function __construct(
+        protected FornecedorService $service
+
+    ){}
+
+    public function index(Request $request)
     {
-        //$support = new Support();
-        $fornecedores = $fornecedor->all();
+        // dd($request)->all();
+        $fornecedores = $this->service->getAll($request->filter);
 
         return view('admin/fornecedores/index', compact('fornecedores'));
 
     }
 
-    public function show(string|int $id)
+    public function show(string $id)
     {
-        // Support::find($id);
-        // Support::where('id', $id)->first();
-        if (!$fornecedor = Fornecedor::find($id)){
+
+        if (!$fornecedor = $this->service->findOne($id)){
 
             return back();
 
@@ -40,22 +46,19 @@ class FornecedorController extends Controller
 
     public function store(StoreUpdateFornecedor $request, Fornecedor $fornecedor)
     {
-        // $data = $request->all();
+
         $data = $request->validated();
 
         $fornecedor->create($data);
 
         return redirect()->route('fornecedores.index');
 
-        // $support =  $support->create($data);//aqui objeto $data
-        // $support::create($data);//aqui colection array
-
     }
 
-    public function edit(Fornecedor $fornecedor, string|int $id)
+    public function edit(string $id)
     {
 
-        if (!$fornecedor = $fornecedor->where('id', $id)->first())
+        if (!$fornecedor = $this->service->findOne($id))
         {
             return back();
 
@@ -88,16 +91,10 @@ class FornecedorController extends Controller
 
     }
 
-    public function destroy(string|int $id)
+    public function destroy(string $id)
     {
 
-        if (!$fornecedor = Fornecedor::find($id)) {
-
-            return back();
-
-        }
-
-        $fornecedor->delete();
+        $this->service->delete($id);
 
         return redirect()->route('fornecedores.index');
 
