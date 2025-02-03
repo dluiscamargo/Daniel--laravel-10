@@ -18,17 +18,26 @@ class FornecedorController extends Controller
 
     public function index(Request $request)
     {
-        // dd($request)->all();
-        $fornecedores = $this->service->getAll($request->filter);
+        // dd($request);
+        $fornecedores = $this->service->getAll($request->filter ?? '');
 
         return view('admin/fornecedores/index', compact('fornecedores'));
 
     }
 
+    //old_ok
+    // public function index(Fornecedor $fornecedor)
+    // {
+    //     $fornecedores = $fornecedor->all();
+
+    //     return view('admin/fornecedores/index', compact('fornecedores'));
+
+    // }
+
     public function show(string $id)
     {
 
-        if (!$fornecedor = $this->service->findOne($id)){
+        if (!$fornecedor = $this->service->findOne($request->id ?? '')){
 
             return back();
 
