@@ -17,22 +17,23 @@
     <tbody>
         @foreach ($fornecedores as $fornecedor)
             <tr>
-                <td>{{ $fornecedor->name }}</td>
-                <td>{{ $fornecedor->razao_social }}</td>
-                <td>{{ $fornecedor->cnpj }}</td>
-                <td>{{ $fornecedor->email }}</td>
-                <td>{{ $fornecedor->telefone }}</td>
-                <td>{{ $fornecedor->endereco }}</td>
-                <td>{{ $fornecedor->numero }}</td>
-                <td>{{ $fornecedor->cidade }}</td>
-                <td>{{ $fornecedor->uf }}</td>
+                <td>{{ $fornecedor['name'] }}</td>
+                <td>{{ $fornecedor['razao_social'] }}</td>
+                <td>{{ $fornecedor['cnpj'] }}</td>
+                <td>{{ $fornecedor['email'] }}</td>
+                <td>{{ $fornecedor['telefone'] }}</td>
+                <td>{{ $fornecedor['endereco'] }}</td>
+                <td>{{ $fornecedor['numero'] }}</td>
+                <td>{{ $fornecedor['complemento'] }}</td>
+                <td>{{ $fornecedor['cidade'] }}</td>
+                <td>{{ $fornecedor['uf'] }}</td>
                 <td>
                     @csrf()
-                    <a href="{{ route('fornecedores.show', $fornecedor->id) }}">ir</a>
+                    <a href="{{ route('fornecedores.show', $fornecedor['id']) }}">ir</a>
                 </td>
                 <td>
                     @csrf()
-                    <a href="{{ route('fornecedores.edit', $fornecedor->id) }}">Editar</a>
+                    <a href="{{ route('fornecedores.edit', $fornecedor ['id']) }}">Editar</a>
                 </td>
             </tr>
         @endforeach

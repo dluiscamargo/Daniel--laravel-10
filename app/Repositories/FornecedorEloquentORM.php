@@ -1,11 +1,13 @@
 <?
 
+namespace App\Repositories;
+
 use App\DTO\CreateFornecedorDTO;
 use App\DTO\UpdateFornecedorDTO;
 use App\Models\Fornecedor;
 use App\Repositories\FornecedorRepositoryInterface;
 
-// use stdClass;
+ use stdClass;
 
 class FornecedorEloquentORM implements FornecedorRepositoryInterface
 {
@@ -26,7 +28,7 @@ class FornecedorEloquentORM implements FornecedorRepositoryInterface
                         }
 
                     })
-                    ->all()
+                    ->get()
                     ->toArray();
 
     }
