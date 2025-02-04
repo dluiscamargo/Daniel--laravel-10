@@ -22,7 +22,7 @@ class FornecedorController extends Controller
     {
 
         $fornecedores = $this->service->getAll($request->filter ?? '');
-
+        dd($fornecedores);
         return view('admin/fornecedores/index', compact('fornecedores'));
 
     }
