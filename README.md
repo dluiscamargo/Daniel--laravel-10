@@ -1,14 +1,13 @@
 
 # Setup Docker Laravel 10 com PHP 8.1
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
 
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone -b laravel-10-com-php-8.1 https://github.com/especializati/setup-docker-laravel.git app-laravel
+git clone -b https://github.com/dluiscamargo/Daniel--laravel-10.git
 ```
 ```sh
-cd app-laravel
+cd Daniel--laravel-10
 ```
 
 
@@ -20,7 +19,7 @@ cp .env.example .env
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME="Especializa Ti"
+APP_NAME="DanielTest"
 APP_URL=http://localhost:8989
 
 DB_CONNECTION=mysql
