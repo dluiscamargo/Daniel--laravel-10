@@ -3,6 +3,8 @@
 
 namespace App\Services;
 
+use App\DTO\CreateFornecedorDTO;
+use App\DTO\UpdateFornecedorDTO;
 use stdClass;
 
 class FornecedorService
@@ -31,63 +33,17 @@ class FornecedorService
     }
 
 
-    public function new(
-        string $name,
-        string $razao_social,
-        string $cnpj,
-        string $email,
-        string $telefone,
-        string $endereco,
-        string $numero,
-        string $complemento,
-        string $cidade,
-        string $uf,
-    ): stdClass
+    public function new(CreateFornecedorDTO $dto): stdClass
     {
 
-        return $this->repository->new(
-            $name,
-            $razao_social,
-            $cnpj,
-            $email,
-            $telefone,
-            $endereco,
-            $numero,
-            $complemento,
-            $cidade,
-            $uf,
-        );
+        return $this->repository->new($dto);
 
     }
 
-    public function update(
-        string $id,
-        string $name,
-        string $razao_social,
-        string $cnpj,
-        string $email,
-        string $telefone,
-        string $endereco,
-        string $numero,
-        string $complemento,
-        string $cidade,
-        string $uf,
-    ): stdClass|null
+    public function update(UpdateFornecedorDTO $dto): stdClass|null
     {
 
-        return $this->repository->update(
-            $id,
-            $name,
-            $razao_social,
-            $cnpj,
-            $email,
-            $telefone,
-            $endereco,
-            $numero,
-            $complemento,
-            $cidade,
-            $uf,
-        );
+        return $this->repository->update($dto);
 
     }
 
