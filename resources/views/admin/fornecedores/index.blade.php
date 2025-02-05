@@ -39,3 +39,8 @@
         @endforeach
     </tbody>
 </table>
+<x-pagination :paginator="$fornecedores"
+              :appends="$filters" />
+
+
+

@@ -23,11 +23,13 @@ class FornecedorController extends Controller
 
         $fornecedores = $this->service->paginate(
             page: $request->get('page', 1),
-            totalPerPage: $request->get('per_page', 15),
+            totalPerPage: $request->get('per_page', 1),
             filter: $request->filter,
         );
 
-        return view('admin/fornecedores/index', compact('fornecedores'));
+        $filters = ['filter' => $request->get('filter', '')];
+
+        return view('admin/fornecedores/index', compact('fornecedores', 'filters'));
 
     }
 

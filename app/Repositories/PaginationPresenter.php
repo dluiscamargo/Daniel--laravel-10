@@ -39,7 +39,7 @@ class PaginationPresenter implements PaginationInterface
 
     public function isFirstPage(): bool
     {
-        return $this->paginator->getUrlRange->start();
+        return $this->paginator->onFirstPage();
 
     }
 
