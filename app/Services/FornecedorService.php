@@ -6,6 +6,7 @@ namespace App\Services;
 use App\DTO\CreateFornecedorDTO;
 use App\DTO\UpdateFornecedorDTO;
 use App\Repositories\FornecedorRepositoryInterface;
+use App\Repositories\PaginationInterface;
 use stdClass;
 
 class FornecedorService
@@ -26,8 +27,7 @@ class FornecedorService
         int $page = 1,
         int $totalPerPage = 15,
         ?string $filter
-    ){
-        // dd($filter);
+    ): PaginationInterface{
         return $this->repository->paginate(
             page: $page,
             totalPerPage: $totalPerPage,
