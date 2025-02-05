@@ -22,6 +22,20 @@ class FornecedorService
     ){}
 
 
+    public function paginate(
+        int $page = 1,
+        int $totalPerPage = 15,
+        ?string $filter
+    ){
+        // dd($filter);
+        return $this->repository->paginate(
+            page: $page,
+            totalPerPage: $totalPerPage,
+            filter: $filter,
+
+        );
+    }
+
     public function getAll(?string $filter): array
     {
         // dd($filter);

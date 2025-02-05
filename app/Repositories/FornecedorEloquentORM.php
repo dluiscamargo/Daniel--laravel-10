@@ -6,6 +6,7 @@ use App\DTO\CreateFornecedorDTO;
 use App\DTO\UpdateFornecedorDTO;
 use App\Models\Fornecedor;
 use App\Repositories\FornecedorRepositoryInterface;
+use App\Repositories\PaginationInterface;
 
  use stdClass;
 
@@ -17,11 +18,26 @@ class FornecedorEloquentORM implements FornecedorRepositoryInterface
 
     ){}
 
+    public function paginate(int $page = 1, int $totalPerPage = 15, ?string $filter): PaginationInterface
+    {
+        $result = $this->model
+                    ->where(function ($query) use ($filter){
+
+                        if($filter){
+                           $query->where('name', $filter);
+                           $query->orWhere('razao_social', 'like', "%{$filter}%");
+                        }
+
+                    })
+                    ->paginate($totalPerPage, ['*'], 'page', $page);
+
+        return new PaginationPresenter($result);
+    }
+
     public function getAll(?string $filter): array
     {
         return $this->model
                     ->where(function ($query) use ($filter){
-
                         if($filter){
                            $query->where('name', $filter);
                            $query->orWhere('razao_social', 'like', "%{$filter}%");

@@ -21,8 +21,12 @@ class FornecedorController extends Controller
     public function index(Request $request)
     {
 
-        $fornecedores = $this->service->getAll($request->filter ?? '');
-        // dd($fornecedores);
+        $fornecedores = $this->service->paginate(
+            page: $request->get('page', 1),
+            totalPerPage: $request->get('per_page', 15),
+            filter: $request->filter,
+        );
+
         return view('admin/fornecedores/index', compact('fornecedores'));
 
     }
