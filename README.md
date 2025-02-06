@@ -62,16 +62,24 @@ Gere a key do projeto Laravel
 php artisan key:generate
 ```
 
-
 Acesse o projeto
+```sh
 [http://localhost:8989](http://localhost:8989)
+```
+
 
 Acesse o projeto crud fornecedor mvc
-[http://localhost:8989](http://localhost:8989/fornecedores?page=1&)
+```sh
+[http://localhost:8989/fornecedores?page=1&](http://localhost:8989/fornecedores?page=1&)
+```
 
-
-Acesse o projeto api REST crud fornecedor (endpoints: Thunder Client VScode )
+Acesse o projeto api REST crud fornecedor (endpoints: Thunder Client VScode)
+```sh
 [http://localhost:8989](POST:   http://localhost:8989/api/fornecedores)
+```
 [http://localhost:8989](GET:    http://localhost:8989/api/fornecedores/2)
+```
 [http://localhost:8989](DELETE: http://localhost:8989/api/fornecedores/2)
+```
 [http://localhost:8989](PUT:   http://localhost:8989/api/fornecedores/2)
+```
