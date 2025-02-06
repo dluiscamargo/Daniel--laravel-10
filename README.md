@@ -69,19 +69,19 @@ http://localhost:8989
 
 Acesse o projeto crud fornecedor mvc
 ```sh
-[http://localhost:8989/fornecedores?page=1&](http://localhost:8989/fornecedores?page=1&)
+http://localhost:8989/fornecedores?page=1&
 ```
 
 Acesse o projeto api REST crud fornecedor (endpoints: Thunder Client VScode)
 ```sh
-[http://localhost:8989](POST:http://localhost:8989/api/fornecedores)
+POST:http://localhost:8989/api/fornecedores
 ```
 ```sh
-[http://localhost:8989](GET:http://localhost:8989/api/fornecedores/2)
+GET:http://localhost:8989/api/fornecedores/2
 ```
 ```sh
-[http://localhost:8989](DELETE:http://localhost:8989/api/fornecedores/2)
+DELETE:http://localhost:8989/api/fornecedores/2
 ```
 ```sh
-[http://localhost:8989](PUT:http://localhost:8989/api/fornecedores/2)
+PUT:http://localhost:8989/api/fornecedores/2
 ```
