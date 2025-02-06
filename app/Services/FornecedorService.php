@@ -38,7 +38,7 @@ class FornecedorService
 
     public function getAll(?string $filter): array
     {
-        // dd($filter);
+
         return $this->repository->getAll($filter);
 
     }
