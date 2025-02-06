@@ -64,7 +64,7 @@ php artisan key:generate
 
 Acesse o projeto
 ```sh
-[http://localhost:8989](http://localhost:8989)
+http://localhost:8989
 ```
 
 Acesse o projeto crud fornecedor mvc
