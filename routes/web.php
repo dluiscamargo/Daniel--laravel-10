@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\{SupportController};
 use App\Http\Controllers\Admin\{FornecedorController};
+use App\Http\Controllers\Admin\{RenaveController};
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::delete('/renaves/{id}/', [RenaveController::class, 'destroy'])->name('renaves.destroy');
+Route::put('/renaves/{id}', [RenaveController::class, 'update'])->name('renaves.update');
+Route::get('/renaves/{id}/edit', [RenaveController::class, 'edit'])->name('renaves.edit');
+Route::get('/renaves/create', [RenaveController::class, 'create'])->name('renaves.create');
+Route::get('/renaves/{id}', [RenaveController::class, 'show'])->name('renaves.show');
+Route::post('/renaves', [RenaveController::class, 'store'])->name('renaves.store');
+Route::get('/renaves', [RenaveController::class, 'index'])->name('renaves.index');
+
 
 Route::delete('/fornecedores/{id}/', [FornecedorController::class, 'destroy'])->name('fornecedores.destroy');
 Route::put('/fornecedores/{id}', [FornecedorController::class, 'update'])->name('fornecedores.update');
