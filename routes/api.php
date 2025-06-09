@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\Api\FornecedorController;
-use App\Http\Controllers\Api\RenaveController;
+// use App\Http\Controllers\Api\RenaveController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Api\Renave\RenaveController;
 
 
 Route::apiResource('/fornecedores', FornecedorController::class);
-Route::apiResource('/renaves', RenaveController::class);
+// Route::apiResource('/renaves', RenaveController::class);
 // Route::apiResource('/renave', RenaveController::class);
 
 /* Renave - gird cliente & veiculo & relatorio planilha livewire*/
