@@ -2,9 +2,9 @@
 
 namespace App\DTO;
 
-use App\Http\Requests\StoreUpdateFornecedor;
+use App\Http\Requests\StoreUpdateRenave;
 
-class CreateFornecedorDTO
+class CreateRenaveDTO
 {
     public function __construct(
        public string $name,
@@ -20,7 +20,7 @@ class CreateFornecedorDTO
 
     ){}
 
-    public static function makeFromRequest(StoreUpdateFornecedor $request): self
+    public static function makeFromRequest(StoreUpdateRenave $request): self
     {
 
         return new self(
